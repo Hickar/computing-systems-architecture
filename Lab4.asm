@@ -1,44 +1,44 @@
 %include "io.inc"
 
 section .data
-min dw 0
+max dw 0
 
 section .text
 global CMAIN
 
-findMin:
+findMax:
     CMP ecx, 2
-    JE findMinDW
+    JE findMaxDW
     CMP ecx, 4
-    JE findMinDD
+    JE findMaxDD
     PRINT_STRING "Неверно указан тип числа: "
     PRINT_DEC 4, ecx
     NEWLINE
     RET
 
-findMinDW:
+findMaxDW:
     CMP ax, dx
-    JL xMinDW
-    MOV [min], dx
-    JMP findMinEndDW
-xMinDW:
-    MOV [min], ax
-findMinEndDW:
-    PRINT_STRING "Минимум (2 байта): "
-    PRINT_DEC 4, [min]
+    JG xMaxDW
+    MOV [max], dx
+    JMP findMaxEndDW
+xMaxDW:
+    MOV [max], ax
+findMaxEndDW:
+    PRINT_STRING "Максимум (2 байта): "
+    PRINT_DEC 4, [max]
     NEWLINE
     RET
 
-findMinDD:
+findMaxDD:
     CMP eax, edx
-    JL xMinDD
-    MOV [min], edx
-    JMP findMinEndDD
-xMinDD:
-    MOV [min], eax
-findMinEndDD:
-    PRINT_STRING "Минимум (4 байта): "
-    PRINT_DEC 4, [min]
+    JG xMaxDD
+    MOV [max], edx
+    JMP findMaxEndDD
+xMaxDD:
+    MOV [max], eax
+findMaxEndDD:
+    PRINT_STRING "Максимум (4 байта): "
+    PRINT_DEC 4, [max]
     NEWLINE
     RET
 
@@ -46,17 +46,17 @@ CMAIN:
     MOV eax, 4
     MOV edx, 6
     MOV ecx, 2
-    CALL findMin
+    CALL findMax
     
     MOV eax, 10
     MOV edx, 5
     MOV ecx, 4
-    CALL findMin
+    CALL findMax
     
 ;вызов функции, тестирующий защиту "от дурака"
     MOV eax, 1
     MOV edx, 2
     MOV ecx, 3
-    CALL findMin
+    CALL findMax
     
     RET

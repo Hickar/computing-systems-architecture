@@ -10,14 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97190146-7b69-4864-a3b1-f73869715362" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lab4.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab1.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab3.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab4.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Lab4.asm" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +22,10 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="1" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,7 +60,8 @@
       <updated>1607272379625</updated>
       <workItem from="1607272380773" duration="125000" />
       <workItem from="1607507758787" duration="213000" />
-      <workItem from="1607614633596" duration="1459000" />
+      <workItem from="1607614633596" duration="1529000" />
+      <workItem from="1607619554668" duration="1399000" />
     </task>
     <servers />
   </component>
@@ -73,7 +73,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

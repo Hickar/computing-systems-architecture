@@ -4,9 +4,8 @@
     PUSH edx
     MOV edx, %1
     MOV [temp], edx
-    ADD [temp], dword '0'
     PRINT_STRING %2
-    PRINT_STRING [temp]
+    PRINT_DEC [temp]
     POP edx
 %endmacro
 
@@ -37,9 +36,8 @@ loopMin:
     JNZ compareMin
 printMin:
     MOV [min], ax
-    ADD [min], dword '0'
     PRINT_STRING "Минимум: "
-    PRINT_STRING [min]
+    PRINT_DEC [min]
     NEWLINE
     XOR eax, eax
     XOR ebx, ebx
@@ -110,8 +108,7 @@ loopPrint:
     JE loopPrintEnd
     MOV eax, [ebx+2*ecx]
     MOV [temp], eax
-    ADD [temp], word '0'
-    PRINT_STRING [temp]
+    PRINT_DEC [temp]
     PRINT_STRING " "
     INC ecx
     CMP ecx, [size]
