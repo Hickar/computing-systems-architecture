@@ -1,9 +1,7 @@
 %include "io.inc"
 
-;Максимальное допустимое значение ячейки ма
-
 section .data
-Arr times 250 dd -6FFFFFFFh ;Записываем массив из 31-разрядных чисел
+Arr times 250 dd -6FFFFFFFh ;РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РјР°СЃСЃРёРІ РёР· 31-СЂР°Р·СЂСЏРґРЅС‹С… С‡РёСЃРµР»
 average dd 0
 size dw 250
 
@@ -19,8 +17,6 @@ findLoop:
     JE calculateAverage
     ADD eax, [ebx+4*ecx]
     JO handleOverflow
-;Если происходит переполнение, то вычитается единица из
-;регистра edx, который будет хранить старшие биты будущего делимого
     INC ecx
     JMP findLoop
 handleOverflow:
@@ -39,9 +35,8 @@ calculateAverage:
     RET
 
 CMAIN:
-    MOV ebp, esp; for correct debugging
     MOV ebx, Arr
     CALL findAverage
-    PRINT_STRING "Среднее арифметическое: "
+    PRINT_STRING "РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ: "
     PRINT_DEC 4, [average]
     RET

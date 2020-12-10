@@ -1,6 +1,5 @@
 %include "io.inc"
 
-;������ ��� ����������
 %macro printValue 2
     PUSH edx
     MOV edx, %1
@@ -21,9 +20,9 @@ temp dw 0
 section .text
 global CMAIN
 
-; ax - ������ ������������� �������� ��������
-; ebx - ��������� �� n-�� ������� �������
-; cx - ������ ���������� ������
+; ax - хранит промежуточное значение минимума
+; ebx - указатель на n-ый элемент массива
+; cx - хранит количество циклов
 findMin:
     MOV ebx, Arr+2
     MOV cx, [Arr]
@@ -39,7 +38,7 @@ loopMin:
 printMin:
     MOV [min], ax
     ADD [min], dword '0'
-    PRINT_STRING "Array minimum: "
+    PRINT_STRING "Минимум: "
     PRINT_STRING [min]
     NEWLINE
     XOR eax, eax
@@ -48,11 +47,11 @@ printMin:
     RET
     
 selectionSort:
-    ;ebx - �������� ������ n-�� ������ �������
-    ;cx - ������ �������
+    ;ebx - указатель на n-ый элемент массива
+    ;cx - размер массива
     ;esi - i
     ;edi - j
-    ;ax, dx - �������� ������������� �����������
+    ;ax, dx - хранят сравниваемые элементы массива
     MOV ebx, Arr+2 ;arr[]
     MOV cx, [Arr]
     DEC cx ;size - 1
@@ -77,7 +76,7 @@ innerLoopSort:
     JE swapSort
     PUSH ecx
 compareSort:
-    ;�������� ����������� cx ��� �������� � �� maxIndex
+    ;на время освобождаем cx для хранения в нёи maxIndex
     MOV cx, [maxIndex]
     MOV ax, [ebx+2*edi] ;arr[j]
     MOV dx, [ebx+2*ecx] ;arr[maxIndex]
@@ -89,7 +88,7 @@ compareSort:
     MOV [maxIndex], di
     JMP innerLoopSort
 swapSort:
-    ;����������� edi ��� �������� � �� ��������� ����������
+    ;освобождаем edi для хранения в нём временной переменной
     PUSH di
     PUSH cx
     MOV di, 0
@@ -122,12 +121,11 @@ loopPrintEnd:
     
 
 CMAIN:
-    MOV ebp, esp; for correct debugging
     CALL findMin
-    PRINT_STRING "Unsorted array: "
+    PRINT_STRING "Неупорядоченный массив: "
     CALL printArray
     CALL selectionSort
-    PRINT_STRING "Sorted array: "
+    PRINT_STRING "Упорядоченный массив: "
     CALL printArray
     
     MOV eax, 1
